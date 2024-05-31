@@ -1,0 +1,38 @@
+<style>
+body{
+  background:#ffffff;
+}
+aaa{
+  display:flex;
+}
+</style>
+<h1>NewTube</h1>
+<input id="namename"><a href="javascript:aaa()">行く</a>
+<aaa>
+<div id="youtube">
+  <svg style="background-color:black;">
+    <use href="./spin.svg#foo"></use>
+  </svg>
+</div>
+<button onclick="aaaa()">進</button>
+</aaa>
+<p id="text"></p>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+aaaaa=0
+function aaaa(){
+ aaaaa=aaaaa+1
+ if (aaaaa==3){
+   aaaaa=0
+ }
+ aaa()
+}
+function aaa(){
+ $.get(`https://script.google.com/macros/s/AKfycbxpRzcAvTiPkySV_588JNtTegy0ZU9a91I8t97Edtwv9nu2YlI1byWc633wI5HRj95M/exec?q=${encodeURIComponent(document.getElementById("namename").value)}`, (data, status) => {
+    document.getElementById("text").textContent=`${data[0]["joho"]["viewCount"]}回視聴。${data[aaaaa]["joho"]["likeCount"]}いいね`
+    document.getElementById("youtube").innerHTML='<iframe width="560" height="315" src="https://www.youtube.com/embed/'+data[aaaaa]["id"]["videoId"]+'?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen id="youtube"></iframe>'
+ });
+}
+aaa()
+</script>
